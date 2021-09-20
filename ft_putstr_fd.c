@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 19:12:17 by mbucci            #+#    #+#             */
-/*   Updated: 2021/09/15 00:08:29 by mbucci           ###   ########.fr       */
+/*   Updated: 2021/09/20 18:53:28 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
 }
