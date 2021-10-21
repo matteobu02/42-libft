@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 12:03:41 by mbucci            #+#    #+#             */
-/*   Updated: 2021/09/15 00:11:20 by mbucci           ###   ########.fr       */
+/*   Updated: 2021/09/15 22:12:15 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 
 	len = ft_strlen(s);
-	s2 = (char *)malloc(len);
+	s2 = (char *)malloc(len + 1);
 	if (!s2)
 		return (NULL);
 	i = 0;

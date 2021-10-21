@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:06:25 by mbucci            #+#    #+#             */
-/*   Updated: 2021/09/13 13:29:00 by mbucci           ###   ########.fr       */
+/*   Updated: 2021/09/15 22:23:31 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (start == strlen)
 		str = (char *)malloc(1);
 	else
-		str = (char *)malloc(strlen - start - end);
+		str = (char *)malloc(strlen - start - end + 1);
 	if (!str)
 		return (NULL);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 13:23:43 by mbucci            #+#    #+#             */
-/*   Updated: 2021/09/10 16:39:18 by mbucci           ###   ########.fr       */
+/*   Updated: 2021/09/15 21:57:56 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 
 	i = 0;
-	if (!dst || !src)
-		return (0);
 	if (!dstsize)
 		return (ft_strlen(src));
 	while (src[i] != '\0' && i < dstsize)

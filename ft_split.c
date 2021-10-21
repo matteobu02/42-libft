@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 13:38:20 by mbucci            #+#    #+#             */
-/*   Updated: 2021/09/14 13:20:00 by mbucci           ###   ########.fr       */
+/*   Updated: 2021/09/16 12:51:29 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,10 @@ char	**ft_split(char const *s, char c)
 	int		start;
 	char	**tab;
 
+	if (!s)
+		return (NULL);
 	tab = (char **)malloc((ft_count_words(s, c) + 1) * sizeof(char *));
-	if (!s || !tab)
+	if (!tab)
 		return (NULL);
 	i = -1;
 	count = 0;

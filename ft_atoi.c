@@ -6,15 +6,15 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 11:19:16 by mbucci            #+#    #+#             */
-/*   Updated: 2021/09/02 11:33:23 by mbucci           ###   ########.fr       */
+/*   Updated: 2021/09/15 20:32:58 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	s;
-	int	n;
+	int					i;
+	int					s;
+	unsigned long int	n;
 
 	i = 0;
 	while (str[i] == 32 || (str[i] > 8 && str[i] < 14))
@@ -30,6 +30,10 @@ int	ft_atoi(const char *str)
 	while (str[i] > 47 && str[i] < 58)
 	{
 		n = n * 10 + (str[i] - 48);
+		if (n > 2147483647 && s == 1)
+			return (-1);
+		if (n > 2147483648 && s == -1)
+			return (0);
 		i++;
 	}
 	return (n * s);
