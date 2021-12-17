@@ -3,6 +3,7 @@ NAME	=	libft.a
 SRCS	=	ft_atoi.c		\
 			ft_bzero.c		\
 			ft_calloc.c		\
+			ft_free_tab.c	\
 			ft_isalnum.c	\
 			ft_isalpha.c	\
 			ft_isascii.c	\
@@ -40,15 +41,15 @@ OBJS	=	$(SRCS:.c=.o)
 
 CC		=	gcc
 
-FLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -g
 
-LM		=	ar rc
+AR		=	ar rc
 
 
-$(NAME):
-		
-		$(CC) $(FLAGS) -c $(SRCS)
-		$(LM) $(NAME) $(OBJS)
+.c=.o:
+
+$(NAME):	$(OBJS)
+			$(AR) $(NAME) $(OBJS)
 
 all:	$(NAME)
 

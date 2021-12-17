@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:51:07 by mbucci            #+#    #+#             */
-/*   Updated: 2021/10/21 23:50:51 by mbucci           ###   ########.fr       */
+/*   Updated: 2021/12/17 16:55:25 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
+void	*ft_free_tab(char **tab);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -56,7 +57,5 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
-
-t_list	*ft_lstnew(void *content);
 
 #endif
