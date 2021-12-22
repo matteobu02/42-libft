@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 16:35:20 by mbucci            #+#    #+#             */
-/*   Updated: 2021/12/17 16:43:22 by mbucci           ###   ########.fr       */
+/*   Created: 2021/09/13 13:38:20 by mbucci            #+#    #+#             */
+/*   Updated: 2021/12/21 15:10:04 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(char const *s, char c)
+static int	count_words(char *s, char c)
 {
 	int	flag;
 	int	count;
@@ -40,15 +40,17 @@ static int	count_words(char const *s, char c)
 	return (count);
 }
 
-static int	get_len_word(char const *s, char c, int index)
+static int	get_len_word(char *s, char c, int index)
 {
 	int	flag;
 	int	count;
 	int	i;
+	int	len;
 
 	i = -1;
 	flag = 0;
 	count = 0;
+	len = ft_strlen(s);
 	while (s[++i] && index)
 	{
 		if (flag && s[i] == c)
@@ -61,12 +63,12 @@ static int	get_len_word(char const *s, char c, int index)
 	}
 	while (s[i] == c)
 		i++;
-	while (s[i++] != c)
+	while (s[i++] != c && i <= len)
 		count++;
 	return (count);
 }
 
-static void	fill_tab(char const *s, char c, char **tab, int len)
+static void	fill_tab(char *s, char c, char **tab, int len)
 {
 	int	i;
 	int	j;
@@ -78,12 +80,16 @@ static void	fill_tab(char const *s, char c, char **tab, int len)
 			s++;
 		j = 0;
 		while (s && *s != c)
+		{
 			tab[i][j++] = *s++;
+			if (!*s)
+				break ;
+		}
 		tab[i++][j] = '\0';
 	}
 }
 
-char	**ft_split(char	const *s, char c)
+char	**ft_split(char	*s, char c)
 {
 	char	**tab;
 	int		words;
