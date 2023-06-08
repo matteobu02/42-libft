@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 23:43:16 by mbucci            #+#    #+#             */
-/*   Updated: 2021/10/21 23:46:12 by mbucci           ###   ########.fr       */
+/*   Updated: 2022/05/11 22:33:57 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*obj;
+	t_list	*ptr;
 
-	obj = malloc(sizeof(t_list));
-	if (!obj)
+	ptr = (t_list *)malloc(sizeof(t_list));
+	if (!ptr)
 		return (NULL);
-	obj->content = content;
-	obj->next = NULL;
-	return (obj);
+	ptr->content = content;
+	ptr->next = NULL;
+	return (ptr);
 }

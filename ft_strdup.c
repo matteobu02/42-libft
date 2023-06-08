@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 12:03:41 by mbucci            #+#    #+#             */
-/*   Updated: 2021/09/15 22:12:15 by mbucci           ###   ########.fr       */
+/*   Updated: 2023/06/08 17:45:42 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,9 @@ char	*ft_strdup(const char *s)
 	s2 = (char *)malloc(len + 1);
 	if (!s2)
 		return (NULL);
-	i = 0;
-	while (s[i] != '\0')
-	{
+	i = -1;
+	while (s[++i])
 		s2[i] = s[i];
-		i++;
-	}
-	s2[i] = '\0';
+	s2[i] = 0;
 	return (s2);
 }

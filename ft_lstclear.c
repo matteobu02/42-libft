@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 11:49:21 by mbucci            #+#    #+#             */
-/*   Updated: 2023/06/07 15:01:04 by mbucci           ###   ########.fr       */
+/*   Created: 2022/05/11 23:00:27 by mbucci            #+#    #+#             */
+/*   Updated: 2022/05/11 23:03:20 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
+	if (lst)
+	{
 
-	i = 0;
-	while (s[i])
-		++i;
-	return (i);
+	}
 }
