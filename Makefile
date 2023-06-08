@@ -1,64 +1,71 @@
-NAME	=	libft.a
+NAME		=	libft.a
+CC			=	cc
+CFLAGS		=	-Wall -Wextra -Werror -I $(INCLUDES)
+SRCDIR		=	./srcs/
+OBJDIR		=	./objs/
+INCLUDES	=	./includes/
+AR			=	ar -rc
 
-SRCS	=	ft_atoi.c		\
-			ft_bzero.c		\
-			ft_calloc.c		\
-			ft_free_tab.c	\
-			ft_isalnum.c	\
-			ft_isalpha.c	\
-			ft_isascii.c	\
-			ft_isdigit.c	\
-			ft_isprint.c	\
-			ft_itoa.c		\
-			ft_lstnew.c		\
-			ft_memchr.c		\
-			ft_memcmp.c		\
-			ft_memcpy.c		\
-			ft_memmove.c	\
-			ft_memset.c		\
-			ft_putchar_fd.c	\
-			ft_putendl_fd.c	\
-			ft_putnbr_fd.c	\
-			ft_putstr_fd.c	\
-			ft_split.c		\
-			ft_strchr.c		\
-			ft_strdup.c		\
-			ft_striteri.c	\
-			ft_strjoin.c	\
-			ft_strlcat.c	\
-			ft_strlcpy.c	\
-			ft_strlen.c		\
-			ft_strmapi.c	\
-			ft_strncmp.c	\
-			ft_strnstr.c	\
-			ft_strrchr.c	\
-			ft_strtrim.c	\
-			ft_substr.c		\
-			ft_tolower.c	\
-			ft_toupper.c	\
-
-OBJS	=	$(SRCS:.c=.o)
-
-CC		=	gcc
-
-CFLAGS	=	-Wall -Wextra -Werror -g
-
-AR		=	ar rc
+SRCS		=	ft_atoi.c		\
+				ft_bzero.c		\
+				ft_calloc.c		\
+				ft_isalnum.c	\
+				ft_isalpha.c	\
+				ft_isascii.c	\
+				ft_isdigit.c	\
+				ft_isprint.c	\
+				ft_itoa.c		\
+				ft_memchr.c		\
+				ft_memcmp.c		\
+				ft_memmove.c	\
+				ft_memset.c		\
+				ft_putchar_fd.c	\
+				ft_putendl_fd.c	\
+				ft_putnbr_fd.c	\
+				ft_putstr_fd.c	\
+				ft_split.c		\
+				ft_strchr.c		\
+				ft_strdup.c		\
+				ft_striteri.c	\
+				ft_strjoin.c	\
+				ft_strlcat.c	\
+				ft_strlcpy.c	\
+				ft_strlen.c		\
+				ft_strmapi.c	\
+				ft_strncmp.c	\
+				ft_strnstr.c	\
+				ft_strrchr.c	\
+				ft_strtrim.c	\
+				ft_substr.c		\
+				ft_tolower.c	\
+				ft_toupper.c	\
+				
+OBJS		=	${addprefix $(OBJDIR), $(SRCS:%.c=%.o)}
 
 
-.c=.o:
+# ===== #
 
-$(NAME):	$(OBJS)
-			$(AR) $(NAME) $(OBJS)
 
-all:	$(NAME)
+all:			$(NAME)
+
+$(NAME):		$(OBJDIR) $(OBJS)
+				$(AR) $(NAME) $(OBJS)
+
+bonus:			$(OBJDIR) $(OBJS)
+				# TODO
 
 clean:
-		rm -rf $(OBJS)
+				@rm -rf $(OBJDIR)
 
-fclean:		clean
-		rm -rf $(NAME)
+fclean:			
+				@rm -rf $(NAME) $(OBJDIR)
 
-re:			fclean all
+re:				fclean all
 
-.PHONY:		all clean fclean re
+$(OBJDIR)%.o:	$(SRCDIR)%.c
+				$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR):
+				@mkdir -p $(OBJDIR)
+
+.PHONY:			re clean fclean all
