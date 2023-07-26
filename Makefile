@@ -3,7 +3,7 @@ CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror -I $(INCLUDE)
 SRCDIR		=	./src/
 OBJDIR		=	./obj/
-INCLUDES	=	./include/
+INCLUDE		=	./include/
 AR			=	ar -rc
 
 SRC			=	ft_atoi.c		\
@@ -55,10 +55,10 @@ bonus:			$(OBJDIR) $(OBJ)
 				# TODO
 
 clean:
-				@rm -rf $(OBJDIR)
+				rm -rf $(OBJDIR)
 
 fclean:			
-				@rm -rf $(NAME) $(OBJDIR)
+				rm -rf $(NAME) $(OBJDIR)
 
 re:				fclean all
 
