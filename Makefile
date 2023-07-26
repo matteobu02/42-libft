@@ -1,12 +1,12 @@
 NAME		=	libft.a
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -I $(INCLUDES)
-SRCDIR		=	./srcs/
-OBJDIR		=	./objs/
-INCLUDES	=	./includes/
+CFLAGS		=	-Wall -Wextra -Werror -I $(INCLUDE)
+SRCDIR		=	./src/
+OBJDIR		=	./obj/
+INCLUDES	=	./include/
 AR			=	ar -rc
 
-SRCS		=	ft_atoi.c		\
+SRC			=	ft_atoi.c		\
 				ft_bzero.c		\
 				ft_calloc.c		\
 				ft_isalnum.c	\
@@ -40,7 +40,7 @@ SRCS		=	ft_atoi.c		\
 				ft_tolower.c	\
 				ft_toupper.c	\
 				
-OBJS		=	${addprefix $(OBJDIR), $(SRCS:%.c=%.o)}
+OBJ			=	${addprefix $(OBJDIR), $(SRC:%.c=%.o)}
 
 
 # ===== #
@@ -48,10 +48,10 @@ OBJS		=	${addprefix $(OBJDIR), $(SRCS:%.c=%.o)}
 
 all:			$(NAME)
 
-$(NAME):		$(OBJDIR) $(OBJS)
-				$(AR) $(NAME) $(OBJS)
+$(NAME):		$(OBJDIR) $(OBJ)
+				$(AR) $(NAME) $(OBJ)
 
-bonus:			$(OBJDIR) $(OBJS)
+bonus:			$(OBJDIR) $(OBJ)
 				# TODO
 
 clean:
